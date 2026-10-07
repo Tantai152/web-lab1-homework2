@@ -1,0 +1,19 @@
+# 1. Không hex
+grep -nE "#[0-9a-fA-F]{3,8}" css/reset.css
+# → rỗng
+
+# 2. Không rgb/hsl
+grep -nE "rgb|hsl" css/reset.css
+# → rỗng
+
+# 3. Không class selector
+grep -nE "^\s*\.[a-z]" css/reset.css
+# → rỗng
+
+# 4. Có box-sizing
+grep "box-sizing" css/reset.css
+# → có
+
+# 5. Đếm dòng
+wc -l css/reset.css
+# → khoảng 12-18

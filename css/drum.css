@@ -1,0 +1,133 @@
+:root {
+  --bg: #0b1220;
+  --pad-bg: #1e293b;
+  --pad-active: #38bdf8;
+  --text: #f0f4fa;
+  --accent: #38bdf8;
+  --border: #334155;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header p {
+  color: var(--accent);
+  font-size: .875rem;
+}
+
+.drum-pad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+  width: min(720px, 100%);
+}
+
+.drum-pad {
+  aspect-ratio: 1;
+  background: var(--pad-bg);
+  color: var(--text);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .05s ease, background .15s ease, border-color .15s ease;
+}
+
+.drum-pad span {
+  font-size: .75rem;
+  font-weight: 400;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.drum-pad:hover {
+  border-color: var(--accent);
+}
+
+.drum-pad.active {
+  background: var(--pad-active);
+  color: var(--bg);
+  transform: scale(.96);
+}
+
+.drum-pad.active span {
+  color: var(--bg);
+}
+
+.recorder-controls {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recorder-controls button {
+  background: var(--pad-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .6rem 1rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.recorder-controls button:hover {
+  border-color: var(--accent);
+}
+
+.recorder-controls button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.recorder-controls button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+#rec-status {
+  color: var(--accent);
+  font-size: .875rem;
+  min-height: 1.2em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 375px) {
+  .drum-pad-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .drum-pad {
+    font-size: 1.1rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+}

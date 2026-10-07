@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; media-src 'self'"
+  >
+  <title>Nguyễn Tất Tấn Tài — Drum Kit</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/drum.css">
+</head>
+<body>
+  <header>
+    <h1>Drum Kit</h1>
+    <p>Press A S D F G H J K L — or click the pads.</p>
+  </header>
+
+  <main>
+    <section class="drum-pad-grid" aria-label="Drum pads">
+      <button class="drum-pad" data-key="a" data-sound="sounds/clap.wav" type="button">
+        A
+        <span>Clap</span>
+      </button>
+      <button class="drum-pad" data-key="s" data-sound="sounds/hihat.wav" type="button">
+        S
+        <span>Hi-Hat</span>
+      </button>
+      <button class="drum-pad" data-key="d" data-sound="sounds/kick.wav" type="button">
+        D
+        <span>Kick</span>
+      </button>
+      <button class="drum-pad" data-key="f" data-sound="sounds/openhat.wav" type="button">
+        F
+        <span>Open Hat</span>
+      </button>
+      <button class="drum-pad" data-key="g" data-sound="sounds/boom.wav" type="button">
+        G
+        <span>Boom</span>
+      </button>
+      <button class="drum-pad" data-key="h" data-sound="sounds/ride.wav" type="button">
+        H
+        <span>Ride</span>
+      </button>
+      <button class="drum-pad" data-key="j" data-sound="sounds/snare.wav" type="button">
+        J
+        <span>Snare</span>
+      </button>
+      <button class="drum-pad" data-key="k" data-sound="sounds/tom.wav" type="button">
+        K
+        <span>Tom</span>
+      </button>
+      <button class="drum-pad" data-key="l" data-sound="sounds/tink.wav" type="button">
+        L
+        <span>Tink</span>
+      </button>
+    </section>
+
+    <section class="recorder-controls" aria-label="Recorder">
+      <button id="rec-btn" type="button" aria-pressed="false">Record</button>
+      <button id="play-btn" type="button" disabled>Play</button>
+      <button id="clear-btn" type="button">Clear</button>
+      <p id="rec-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Nguyễn Tất Tấn Tài. Built with vanilla web standards.</p>
+  </footer>
+
+  <script src="js/audio-engine.js" defer></script>
+  <script src="js/recorder.js" defer></script>
+</body>
+</html>

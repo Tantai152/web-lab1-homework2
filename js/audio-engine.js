@@ -38,4 +38,11 @@
       playSound(pad.dataset.key);
     });
   });
+
+  // HW2-05: W3C keyboard handling with repeat throttle
+  window.addEventListener('keydown', (event) => {
+    if (event.repeat) return; // Prevent audio flood while holding a key.
+    if (event.ctrlKey || event.metaKey) return;
+    playSound(event.key.toLowerCase());
+  });
 })();
